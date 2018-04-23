@@ -1,0 +1,38 @@
+.navbar-brand{
+		margin-left: 15px !important;
+	}
+.jumbotron-row{
+	/*background: url('../images/background-img.jpeg') center center no-repeat fixed;*/
+	height:800px;
+
+}
+.pizza-footer-1 a{
+	text-decoration: none;
+}.pizza-footer-2 a{
+	text-decoration: none;
+}.pizza-footer-3 a{
+	text-decoration: none;
+}
+.pizza-one{
+	position: absolute;
+	top: 200px;
+}
+.pizza-footer-1 {
+	font-family: 'Gugi', cursive;
+ }
+.pizza-footer-2 {
+	font-family: 'Gugi', cursive;
+ }
+.pizza-footer-3 {
+	font-family: 'Gugi', cursive;
+ }
+#pizza-text-1{
+	color: #7f8c8d;
+	/*margin-top: -5px;*/
+}
+#pizza-text-2{
+ font-size: 17px;
+}
+#pizza-text-3{
+	color: #7f8c8d;
+}

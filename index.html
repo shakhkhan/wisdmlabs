@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Pizza</title>
+
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Latest font-awesome CDN -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<!-- LATEST-COMPILED-FONT-AWESOME -->
+<link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+
+</head>
+<body>
+	<nav class="navbar" id="navbar">
+		<div class="container">
+			<a class="navbar-left navbar-brand logo " href="#">Pizza-W0rld</a>
+
+			<div class="col-md-offset-4">
+			<ul class="nav navbar-nav navbar-right">
+				<a class="navbar-brand sliding-middle-out" href="#">PIZZA</a>
+				<a class="navbar-brand sliding-middle-out" href="#" onclick="smoothScroll(document.getElementById('about-me'))">SIDES</a>
+				<a class="navbar-brand sliding-middle-out" href="#" onclick="smoothScroll(document.getElementById('education-row'))">MEALS</a>
+				<a class="navbar-brand sliding-middle-out" href="#" onclick="smoothScroll(document.getElementById('skill-row'))">OFFERS</a>
+				<!-- <a class="navbar-brand sliding-middle-out" href="#" onclick="smoothScroll(document.getElementById('project-row'))">PROJECTS</a> -->
+			</ul>
+			</div>
+		</div>
+	</nav>
+<div class="jumbotron-row">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 ">
+				<div class="col-md-3 col-sm-3">
+					<div class="pizza-one">
+						<img src="images/pizza-img-1.jpg" class="img-responsive" alt="">
+						<div class="pizza-footer-1 well text-center" id="supreme">
+						<header id="supreme"></header>
+							<button class="btn btn-success" id="click-1">ORDER</button>
+						</div>
+					</div>
+
+				</div><div class="col-md-offset-1 col-md-3 col-sm-offset-1 col-sm-3">
+					<div class="pizza-one">
+						<img src="images/pizza-img-2.jpeg" class="img-responsive" alt="">
+						<div class="pizza-footer-2 well text-center">
+							<section></section>
+							<button class="btn btn-success" id="click-2">ORDER</button>
+						</div>
+					</div>
+				</div><div class="col-md-offset-1 col-md-3 col-sm-offset-1 col-sm-3">
+					<div class="pizza-one">
+						<img src="images/pizza-img-3.jpeg" class="img-responsive" alt="">
+						<div class="pizza-footer-3 well text-center">
+							<span></span>
+							<button class="btn btn-success" id="click-3">ORDER</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="row">
+			<header></header>
+		</div> -->	
+	</div>
+</div>
+
+<script>
+    var header = document.querySelector('header');
+    var section = document.querySelector('section');
+    var span = document.querySelector('span');
+    // var requestURL = 'js/action.json';
+   var requestURL ='https://api.myjson.com/bins/1dvmnv';
+    // var requestURL = 'https://api.myjson.com/bins/13bm3v';
+    var request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.responseType = 'json';
+    request.send();
+    request.onload = function() {
+      var superHeroes = request.response;
+      populateHeader0(superHeroes);
+      populateHeader1(superHeroes);
+      populateHeader2(superHeroes);
+      // showHeroes(superHeroes);
+    }
+    function populateHeader0(jsonObj) {
+      var myH1 = document.createElement('h2');
+      myH1.textContent = jsonObj['Name'];
+      header.appendChild(myH1);
+      var myPara = document.createElement('h4');
+      myPara.textContent = 'Name: ' + jsonObj['name']  + ' Ingredients: ' + jsonObj['ingredients'] + 'Price:  ' +jsonObj['Price'];
+      header.appendChild(myPara);
+    }
+    function populateHeader1(jsonObj) {
+      var myH2 = document.createElement('h2');
+      myH2.textContent = jsonObj['Name'];
+      section.appendChild(myH2);
+      var myPara = document.createElement('h4');
+      myPara.textContent = 'Name: ' + jsonObj['name2']  + ' Ingredients: ' + jsonObj['ingredients2'] + 'Price:  ' +jsonObj['Price2'];
+      section.appendChild(myPara);
+    }
+    function populateHeader2(jsonObj) {
+      var myH3 = document.createElement('h2');
+      myH3.textContent = jsonObj['Name'];
+      span.appendChild(myH3);
+      var myPara = document.createElement('h4');
+      myPara.textContent = 'Name: ' + jsonObj['name3']  + ' Ingredients: ' + jsonObj['ingredients3'] + 'Price:  ' +jsonObj['price3'];
+      span.appendChild(myPara);
+    }
+    </script>	
+    <script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $(".pizza-footer-1").text("Thanks for your order ! It will be delivered witihn 30 minutes!"); 
+        $("#click-1").hide();
+        $(".pizza-footer-2").text("Thanks for your order ! It will be delivered witihn 30 minutes!");
+        $("#click-2").hide();
+        $(".pizza-footer-3").text("Thanks for your order ! It will be delivered witihn 30 minutes!");
+        $("#click-3").hide();
+    });
+});
+</script>
+</body>
+</html>
